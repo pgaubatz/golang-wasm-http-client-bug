@@ -1,0 +1,10 @@
+<body>
+	<script src="wasm_exec.js"></script>
+	<script>
+		const go = new Go()
+		const input = fetch("main.wasm")
+		WebAssembly.instantiateStreaming(input, go.importObject).then(result => {
+			go.run(result.instance)
+		})
+	</script>
+</body>
